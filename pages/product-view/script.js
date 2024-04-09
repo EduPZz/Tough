@@ -52,7 +52,6 @@ const fillProductInfo = (bootData) => {
   document.querySelector(".product-title").textContent = bootData.title;
   document.querySelector(".product-preview img").setAttribute("src", bootData["image-url"]);
   document.querySelector(".product-details h2").textContent = "Sobre esse item:";
-  
   document.querySelector(".product-details p:nth-of-type(1)").textContent = bootData.description;
   document.querySelector(".product-details ul li:nth-of-type(1) span").textContent = bootData.Color;
   document.querySelector(".product-details ul li:nth-of-type(2) span").textContent = bootData.Disponibilidade;

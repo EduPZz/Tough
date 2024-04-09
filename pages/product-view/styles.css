@@ -175,11 +175,13 @@ header a {
   text-transform: capitalize;
   color: #12263a;
   padding-bottom: 0.6rem;
+  text-decoration: underline;
 }
 .product-details p{
   font-size: 0.9rem;
   padding: 0.3rem;
   opacity: 0.8;
+  font-style: italic;
 }
 .product-details ul{
   margin: 1rem 0;
