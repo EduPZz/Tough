@@ -1,6 +1,23 @@
 const urlParams = new URLSearchParams(window.location.search);
 const bootId = urlParams.get("bootId");
 
+const sideBarBtn = document.querySelector(".close-btn");
+const sideBarLink = document.querySelector(".shoping-cart-link");
+
+const toggleSidebar = () => {
+  const sideBar = document.querySelector(".shoppingCartSideBar");
+
+  sideBar.classList.toggle("disabled");
+}
+
+sideBarBtn.addEventListener("click", () => {
+  toggleSidebar();
+});
+
+sideBarLink.addEventListener("click", () => {
+  toggleSidebar();
+});
+
 fetch("../../data/products/boots.json")
   .then((response) => response.json())
   .then((data) => {

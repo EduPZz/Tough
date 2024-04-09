@@ -3,6 +3,24 @@ const nextBtn = document.querySelector("#next-button");
 const indicators = document.querySelector("[indicators]");
 const productCards = document.querySelector("[product-cards]");
 
+
+const sideBarBtn = document.querySelector(".close-btn");
+const sideBarLink = document.querySelector(".shoping-cart-link");
+
+const toggleSidebar = () => {
+  const sideBar = document.querySelector(".shoppingCartSideBar");
+
+  sideBar.classList.toggle("disabled");
+}
+
+sideBarBtn.addEventListener("click", () => {
+  toggleSidebar();
+});
+
+sideBarLink.addEventListener("click", () => {
+  toggleSidebar();
+});
+
 const changeIndicator = (newIndicatorIndex) => {
   const activeIndicator = indicators.querySelector(".active");
 
