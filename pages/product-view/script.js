@@ -4,27 +4,6 @@ const bootId = urlParams.get("bootId");
 const sideBarBtn = document.querySelector(".close-btn");
 const sideBarLink = document.querySelector(".shoping-cart-link");
 
-const toggleSidebar = () => {
-  const sideBar = document.querySelector(".shoppingCartSideBar");
-
-  sideBar.classList.toggle("disabled");
-}
-
-sideBarBtn.addEventListener("click", () => {
-  toggleSidebar();
-});
-
-sideBarLink.addEventListener("click", () => {
-  toggleSidebar();
-});
-
-fetch("../../data/products/boots.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-    fillProductInfo(getCurrentBoot(data));
-  })
-  .catch((error) => console.error("Error fetching JSON data:", error));
 
 const starsFilling = (rating) => {
   var ratingStars = document.querySelector(".product-rating");
@@ -47,7 +26,6 @@ const starsFilling = (rating) => {
   document.querySelector(".product-rating span").textContent = rating;
 }
 
-
 const fillProductInfo = (bootData) => {
   document.querySelector(".product-title").textContent = bootData.title;
   document.querySelector(".product-preview img").setAttribute("src", bootData["image-url"]);
@@ -66,8 +44,22 @@ const fillProductInfo = (bootData) => {
 const getCurrentBoot = (boots) => {
   let currentBoot;
   for (const boot of boots){
-    console.log({bootId: boot.id})
-    console.log({bootsId: +bootId})
     if (boot.id === +bootId) return currentBoot = boot;
   }
 }
+
+const toggleSidebar = () => {
+  const sideBar = document.querySelector(".shoppingCartSideBar");
+
+  sideBar.classList.toggle("disabled");
+}
+
+sideBarBtn.addEventListener("click", () => {
+  toggleSidebar();
+});
+
+sideBarLink.addEventListener("click", () => {
+  toggleSidebar();
+});
+
+if (boots) fillProductInfo(getCurrentBoot(boots));
