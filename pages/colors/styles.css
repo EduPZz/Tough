@@ -1,0 +1,23 @@
+:root {
+    --primary: #111;
+    --secondary: #4d4d4d;
+    --text: #fff;
+    --text-secondary: #b2b2b2;
+}
+
+body {
+    background-color: var(--primary);
+}
+
+h3 {
+    color: var(--text);
+}
+
+button {
+    background-color: var(--secondary);
+    color: var(--text-secondary);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
