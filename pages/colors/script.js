@@ -2,6 +2,8 @@ const claro = document.getElementById('claro');
 const escuro = document.getElementById('escuro');
 const pastel = document.getElementById('pastel');
 const vermelhoEAzul = document.getElementById('vermelhoEAzul');
+const floresta = document.getElementById('floresta');
+const oceano = document.getElementById('oceano');
 
 const escuroColors = {
     primary: "#111",
@@ -18,10 +20,10 @@ const claroColors = {
 };
 
 const pastelColors = {
-    primary: "lightGrey",
-    secondary: "grey",
-    text: "white",
-    textSecondary: "lightGrey",
+    primary: "#f3f3f3",
+    secondary: "#ACABAB",
+    text: "#949494",
+    textSecondary: "#f3f3f3",
 };
 
 const vermelhoEAzulColors = {
@@ -29,6 +31,20 @@ const vermelhoEAzulColors = {
     secondary: "blue",
     text: "yellow",
     textSecondary: "white",
+};
+
+const florestaColors = {
+    primary: "#2e8b57",
+    secondary: "#8fbc8f",
+    text: "#2f4f4f",
+    textSecondary: "#f5fffa"
+};
+
+const oceanoColors = {
+    primary: "#4682b4",
+    secondary: "#87ceeb",
+    text: "#2f4f4f",
+    textSecondary: "#e0ffff"
 };
 
 
@@ -43,3 +59,5 @@ claro.addEventListener('click', () => changeBodyTheme(claroColors));
 escuro.addEventListener('click', () => changeBodyTheme(escuroColors));
 pastel.addEventListener('click', () => changeBodyTheme(pastelColors));
 vermelhoEAzul.addEventListener('click', () => changeBodyTheme(vermelhoEAzulColors));
+floresta.addEventListener('click', () => changeBodyTheme(florestaColors));
+oceano.addEventListener('click', () => changeBodyTheme(oceanoColors));
