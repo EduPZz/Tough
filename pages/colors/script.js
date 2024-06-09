@@ -63,6 +63,11 @@ const oceanoColors = {
   textSecondary: "#e0ffff",
 };
 
+const themesOnClick = (theme) => {
+  changeBodyTheme(theme);
+  hideCustomSelectors();
+};
+
 const changeBodyTheme = (themeColors) => {
   document.body.style.setProperty("--primary", themeColors.primary);
   document.body.style.setProperty("--secondary", themeColors.secondary);
@@ -76,11 +81,11 @@ const changeBodyTheme = (themeColors) => {
 changeBodyTheme(escuroColors);
 hideCustomSelectors();
 
-claro.addEventListener("click", () => changeBodyTheme(claroColors));
-escuro.addEventListener("click", () => changeBodyTheme(escuroColors));
-pastel.addEventListener("click", () => changeBodyTheme(pastelColors));
+claro.addEventListener("click", () => themesOnClick(claroColors));
+escuro.addEventListener("click", () => themesOnClick(escuroColors));
+pastel.addEventListener("click", () => themesOnClick(pastelColors));
 vermelhoEAzul.addEventListener("click", () =>
-  changeBodyTheme(vermelhoEAzulColors)
+  themesOnClick(vermelhoEAzulColors)
 );
-floresta.addEventListener("click", () => changeBodyTheme(florestaColors));
-oceano.addEventListener("click", () => changeBodyTheme(oceanoColors));
+floresta.addEventListener("click", () => themesOnClick(florestaColors));
+oceano.addEventListener("click", () => themesOnClick(oceanoColors));

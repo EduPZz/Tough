@@ -28,6 +28,10 @@ button {
   border-radius: 4px;
 }
 
+button .active {
+  border: 1px solid var(--text);
+}
+
 .default-themes-selection {
   margin: 16px 8px;
   display: flex;
@@ -47,6 +51,10 @@ button {
   box-shadow: 0 -1px 15px -3px var(--secondary);
 }
 
+.slidecontainer {
+  display: flex;
+}
+
 .custom-selector {
   display: flex;
   flex-direction: column;
@@ -57,9 +65,16 @@ button {
   height: 50px;
   width: 400px;
   border-radius: 8px;
-  border: 0.5px solid white;
+  border: 0.5px solid var(--text);
 }
 
 .hide {
   display: none;
+}
+
+.color-input {
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+  align-items: center;
 }

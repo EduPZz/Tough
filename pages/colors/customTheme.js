@@ -63,14 +63,32 @@ const sendTheme = () => {
   changeBodyTheme(themeColors);
 }
 
+const showDefaultLabels = () => {
+  for (const RGB_sliderContainer of sliders) {
+    const variant = RGB_sliderContainer.id;
+
+    for (const child of RGB_sliderContainer.children) {
+      const color = child.children[0].id;
+      child.children[0].value = RGB_colorScheme[variant][color];
+      child.children[1].innerHTML = child.children[0].value;
+    }
+  }
+};
+
 const addSliderListeners = (sliders, colorSchemeCategory, previewElement) => {
   for (const RGB_slider of sliders) {
     RGB_slider.oninput = function () {
-      const colorToChange = this.id;
-      const value = this.value;
+      const input = this.children[0];
+      console.log(input)
+      const colorToChange = input.id;
+      const value = input.value;
 
       RGB_colorScheme[colorSchemeCategory][colorToChange] = value;
 
+      for (const child of this.children) {
+        if (child.id === "label") child.innerHTML = value;
+      }
+      
       setRBG_preview(previewElement, RGB_colorScheme[colorSchemeCategory]);
       sendTheme();
     };
@@ -80,6 +98,7 @@ const addSliderListeners = (sliders, colorSchemeCategory, previewElement) => {
 const onCustomClick = () => {
   showCustomSelectors();
   sendTheme();
+  showDefaultLabels();
 }
 
 addSliderListeners(RGB_slidersPrimary, 'primary', RGB_colorPreviewPrimary);
@@ -94,7 +113,6 @@ const setup = () => {
   setRBG_preview(RGB_colorPreviewTextSecondary, RGB_colorScheme.textSecondary);
 
   
-
   custom.addEventListener("click", () => onCustomClick());
 };
 
