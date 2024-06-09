@@ -1,23 +1,65 @@
-:root {
-    --primary: #111;
-    --secondary: #4d4d4d;
-    --text: #fff;
-    --text-secondary: #b2b2b2;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--primary);
+  --primary: #111;
+  --secondary: #4d4d4d;
+  --text: #fff;
+  --text-secondary: #b2b2b2;
+  background-color: var(--primary);
 }
 
 h3 {
-    color: var(--text);
+  color: var(--text);
+  text-align: center;
+  margin-top: 16px;
 }
 
 button {
-    background-color: var(--secondary);
-    color: var(--text-secondary);
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 4px;
+  background-color: var(--secondary);
+  color: var(--text-secondary);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.default-themes-selection {
+  margin: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.default-themes-selection p {
+  color: var(--text);
+}
+
+.default-themes-selection button {
+  width: fit-content;
+}
+
+#custom {
+  box-shadow: 0 -1px 15px -3px var(--secondary);
+}
+
+.custom-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-selector .rgbcolorPreview {
+  height: 50px;
+  width: 400px;
+  border-radius: 8px;
+  border: 0.5px solid white;
+}
+
+.hide {
+  display: none;
 }

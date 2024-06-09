@@ -1,21 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./styles.css" rel="stylesheet"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./styles.css" rel="stylesheet" />
     <title>Document</title>
-</head>
-<body>
-    <h3>
-        Seja bem-vindo a pagina de cores! 
-    </h3>
-    <button id="claro">Claro</button>
-    <button id="escuro">Escuro</button>
-    <button id="pastel">Pastel</button>
-    <button id="vermelhoEAzul">Vermelho e Azul</button>
-    <button id="floresta">Floresta</button>
-    <button id="oceano">Oceano</button>
+  </head>
+  <body>
+    <h3>Seja bem-vindo a pagina de cores!</h3>
+    <div class="default-themes-selection">
+      <p>Selectione o tema da página:</p>
+      <div class="buttons">
+        <button id="claro">Claro</button>
+        <button id="escuro">Escuro</button>
+        <button id="pastel">Pastel</button>
+        <button id="vermelhoEAzul">Vermelho e Azul</button>
+        <button id="floresta">Floresta</button>
+        <button id="oceano">Oceano</button>
+
+        <button id="custom">Personalizado</button>
+      </div>
+      <div class="custom-selector">
+        <p>Cor principal</p>
+        <div class="rgbcolorPreview" id="rgbcolorPreviewPrimary"></div>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="R"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="G"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="B"
+          />
+        </div>
+      </div>
+      <div class="custom-selector">
+        <p>Cor do texto</p>
+        <div class="rgbcolorPreview" id="rgbcolorPreviewText"></div>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="R"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="G"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="B"
+          />
+        </div>
+      </div>
+
+      <div class="custom-selector">
+        <p>Cor secundária</p>
+        <div class="rgbcolorPreview" id="rgbcolorPreviewSecondary"></div>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="R"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="G"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="B"
+          />
+        </div>
+      </div>
+
+      <div class="custom-selector">
+        <p>Cor do texto secundária</p>
+        <div class="rgbcolorPreview" id="rgbcolorPreviewTextSecondary"></div>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="R"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="G"
+          />
+          <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            class="slider"
+            id="B"
+          />
+        </div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
-</body>
+    <script src="./customTheme.js"></script>
+  </body>
 </html>
