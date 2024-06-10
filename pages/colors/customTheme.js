@@ -61,24 +61,24 @@ let colorScheme = {
   },
   HSL: {
     primary: {
-      R: "0",
-      G: "0",
-      B: "7",
+      R: 0,
+      G: 0,
+      B: 7,
     },
     text: {
-      R: "0",
-      G: "0",
-      B: "100",
+      R: 0,
+      G: 0,
+      B: 100,
     },
     secondary: {
-      R: "0",
-      G: "0",
-      B: "30",
+      R: 0,
+      G: 0,
+      B: 30,
     },
     textSecondary: {
-      R: "0",
-      G: "0",
-      B: "70",
+      R: 0,
+      G: 0,
+      B: 70,
     },
   },
 };
@@ -155,8 +155,8 @@ const showDefaultLabels = () => {
 
     for (const child of RGB_sliderContainer.children) {
       const color = child.children[1].id;
-      child.children[1].value = colorScheme[activeColorScheme][variant][color];
-      child.children[2].innerHTML = child.children[1].value;
+      child.children[1].value = HEX_toDecimal(colorScheme[activeColorScheme][variant][color]);
+      child.children[2].innerHTML = colorScheme[activeColorScheme][variant][color];
     }
   }
 };
@@ -166,13 +166,13 @@ const addSliderListeners = (sliders, colorSchemeCategory, previewElement) => {
     RGB_slider.oninput = function () {
       const input = this.children[1];
       const colorToChange = input.id;
-      const value = input.value;
+      const value = +input.value;
 
       colorScheme[activeColorScheme][colorSchemeCategory][colorToChange] =
-        value;
+      decmialTo_HEX(value);
 
       for (const child of this.children) {
-        if (child.id === "label") child.innerHTML = value;
+        if (child.id === "label") child.innerHTML = decmialTo_HEX(value);
       }
 
       setPreview(
