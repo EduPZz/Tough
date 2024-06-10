@@ -15,7 +15,7 @@ const colorPreviewTextSecondary = document.getElementById(
 const currentTheme = document.body.style.getPropertyValue("--primary");
 
 let colorScheme = {
-  "RGB": {
+  RGB: {
     primary: {
       R: 17,
       G: 17,
@@ -37,7 +37,7 @@ let colorScheme = {
       B: 178,
     },
   },
-  "HEX": {
+  HEX: {
     primary: {
       R: "11",
       G: "11",
@@ -59,7 +59,7 @@ let colorScheme = {
       B: "B2",
     },
   },
-  "HSL": {
+  HSL: {
     primary: {
       R: "0",
       G: "0",
@@ -128,13 +128,17 @@ const setPreview = (previewElement, RGB_colorSchemeVariant) => {
     default:
       break;
   }
-}
+};
 
 const sendTheme = () => {
   const { R: PR, G: PG, B: PB } = colorScheme[activeColorScheme].primary;
   const { R: TR, G: TG, B: TB } = colorScheme[activeColorScheme].text;
   const { R: SR, G: SG, B: SB } = colorScheme[activeColorScheme].secondary;
-  const { R: TSR, G: TSG, B: TSB } = colorScheme[activeColorScheme].textSecondary;
+  const {
+    R: TSR,
+    G: TSG,
+    B: TSB,
+  } = colorScheme[activeColorScheme].textSecondary;
 
   const themeColors = {
     primary: getRGBColorString(PR, PG, PB),
@@ -164,13 +168,17 @@ const addSliderListeners = (sliders, colorSchemeCategory, previewElement) => {
       const colorToChange = input.id;
       const value = input.value;
 
-      colorScheme[activeColorScheme][colorSchemeCategory][colorToChange] = value;
+      colorScheme[activeColorScheme][colorSchemeCategory][colorToChange] =
+        value;
 
       for (const child of this.children) {
         if (child.id === "label") child.innerHTML = value;
       }
 
-      setRBG_preview(previewElement, colorScheme[activeColorScheme][colorSchemeCategory]);
+      setPreview(
+        previewElement,
+        colorScheme[activeColorScheme][colorSchemeCategory]
+      );
       sendTheme();
     };
   }
@@ -182,22 +190,28 @@ const onCustomClick = () => {
   showDefaultLabels();
 };
 
-addSliderListeners(slidersPrimary, "primary", colorPreviewPrimary);
-addSliderListeners(slidersText, "text", colorPreviewText);
-addSliderListeners(slidersSecondary, "secondary", colorPreviewSecondary);
-addSliderListeners(
-  slidersTextSecondary,
-  "textSecondary",
-  colorPreviewTextSecondary
-);
+const addEvents = () => {
+  addSliderListeners(slidersPrimary, "primary", colorPreviewPrimary);
+  addSliderListeners(slidersText, "text", colorPreviewText);
+  addSliderListeners(slidersSecondary, "secondary", colorPreviewSecondary);
+  addSliderListeners(
+    slidersTextSecondary,
+    "textSecondary",
+    colorPreviewTextSecondary
+  );
+};
 
 const setup = () => {
   setPreview(colorPreviewPrimary, colorScheme[activeColorScheme].primary);
   setPreview(colorPreviewText, colorScheme[activeColorScheme].text);
   setPreview(colorPreviewSecondary, colorScheme[activeColorScheme].secondary);
-  setPreview(colorPreviewTextSecondary, colorScheme[activeColorScheme].textSecondary);
+  setPreview(
+    colorPreviewTextSecondary,
+    colorScheme[activeColorScheme].textSecondary
+  );
 
   custom.addEventListener("click", () => onCustomClick());
+  addEvents();
 };
 
 setup();
