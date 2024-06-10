@@ -9,7 +9,7 @@
   <body>
     <h3>Seja bem-vindo a pagina de cores!</h3>
     <div class="default-themes-selection">
-      <p>Selectione o tema da página:</p>
+      <p>Selecione o tema da página:</p>
       <div class="buttons">
         <button id="claro">Claro</button>
         <button id="escuro">Escuro</button>
@@ -21,11 +21,17 @@
         <button id="custom">Personalizado</button>
       </div>
       <div class="custom-selector">
+        <h3>Ecolher esquema de corres</h3>
+        <div class="color-scheme-buttons">
+          <button class="active" id="RGB">RGB</button>
+          <button id="HEX">HEX</button>
+          <button id="HSL">HSL</button>
+        </div>
         <p>Cor principal</p>
         <div class="rgbcolorPreview" id="rgbcolorPreviewPrimary"></div>
         <div class="slidecontainer" id="primary">
           <div class="color-input">
-            Vermelho
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -37,7 +43,7 @@
             <p id="label"></p>
           </div>
           <div class="color-input">
-            Verde
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -50,7 +56,7 @@
           </div>
 
           <div class="color-input">
-            Azul
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -68,7 +74,7 @@
         <div class="rgbcolorPreview" id="rgbcolorPreviewText"></div>
         <div class="slidecontainer" id="text">
           <div class="color-input">
-            Vermelho
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -80,7 +86,7 @@
             <p id="label"></p>
           </div>
           <div class="color-input">
-            Verde
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -93,7 +99,7 @@
           </div>
 
           <div class="color-input">
-            Azul
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -112,7 +118,7 @@
         <div class="rgbcolorPreview" id="rgbcolorPreviewSecondary"></div>
         <div class="slidecontainer" id="secondary">
           <div class="color-input">
-            Vermelho
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -124,7 +130,7 @@
             <p id="label"></p>
           </div>
           <div class="color-input">
-            Verde
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -137,7 +143,7 @@
           </div>
 
           <div class="color-input">
-            Azul
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -156,7 +162,7 @@
         <div class="rgbcolorPreview" id="rgbcolorPreviewTextSecondary"></div>
         <div class="slidecontainer" id="textSecondary">
           <div class="color-input">
-            Vermelho
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -168,7 +174,7 @@
             <p id="label"></p>
           </div>
           <div class="color-input">
-            Verde
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -181,7 +187,7 @@
           </div>
 
           <div class="color-input">
-            Azul
+            <p id="title"></p>
             <input
               type="range"
               min="0"
@@ -197,6 +203,7 @@
     </div>
 
     <script src="./script.js"></script>
+    <script src="./colorSchemeButtonsHandler.js"></script>
     <script src="./customTheme.js"></script>
   </body>
 </html>

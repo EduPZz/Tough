@@ -6,6 +6,8 @@ const floresta = document.getElementById("floresta");
 const oceano = document.getElementById("oceano");
 const custom = document.getElementById("custom");
 
+let activeColorScheme = 'RGB';
+
 const customSelectors = document.getElementsByClassName("custom-selector");
 
 

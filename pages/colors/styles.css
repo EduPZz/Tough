@@ -47,12 +47,26 @@ button .active {
   width: fit-content;
 }
 
+.color-scheme-buttons {
+  color: var(--text);
+  width: 400px;
+  margin-top: 16px;
+}
+
+.color-scheme-buttons button {
+  width: fit-content;
+}
+
 #custom {
   box-shadow: 0 -1px 15px -3px var(--secondary);
 }
 
 .slidecontainer {
   display: flex;
+}
+
+.custom-selector {
+  color: var(--text);
 }
 
 .custom-selector {
@@ -77,4 +91,10 @@ button .active {
   flex-direction: column;
   color: var(--text);
   align-items: center;
+}
+
+.active {
+  background-color: var(--text-secondary);
+  color: var(--primary);
+  border: 1px solid var(--text);
 }
