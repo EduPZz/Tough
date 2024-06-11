@@ -71,6 +71,7 @@ const themesOnClick = (theme) => {
 };
 
 const changeBodyTheme = (themeColors) => {
+  console.log(themeColors);
   document.body.style.setProperty("--primary", themeColors.primary);
   document.body.style.setProperty("--secondary", themeColors.secondary);
   document.body.style.setProperty("--text", themeColors.text);

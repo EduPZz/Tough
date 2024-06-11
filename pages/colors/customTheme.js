@@ -1,7 +1,9 @@
-const slidersPrimary = sliders[0].children;
-const slidersText = sliders[1].children;
-const slidersSecondary = sliders[2].children;
-const slidersTextSecondary = sliders[3].children;
+const [
+  { children: slidersPrimary },
+  { children: slidersText },
+  { children: slidersSecondary },
+  { children: slidersTextSecondary },
+] = sliders;
 
 const colorPreviewPrimary = document.getElementById("rgbcolorPreviewPrimary");
 const colorPreviewText = document.getElementById("rgbcolorPreviewText");
@@ -11,8 +13,6 @@ const colorPreviewSecondary = document.getElementById(
 const colorPreviewTextSecondary = document.getElementById(
   "rgbcolorPreviewTextSecondary"
 );
-
-const currentTheme = document.body.style.getPropertyValue("--primary");
 
 let colorScheme = {
   RGB: {
@@ -46,7 +46,7 @@ let colorScheme = {
     text: {
       R: "FF",
       G: "FF",
-      B: "11",
+      B: "FF",
     },
     secondary: {
       R: "4D",
@@ -83,6 +83,18 @@ let colorScheme = {
   },
 };
 
+const getColorString = {
+  RGB: (R, G, B) => {
+    return `rgb(${R}, ${G}, ${B})`;
+  },
+  HEX: (R, G, B) => {
+    return `#${R}${G}${B}`;
+  },
+  HSL: (HUE, SAT, LIGHT) => {
+    return `hsl(${HUE}, ${SAT}%, ${LIGHT}%)`;
+  },
+};
+
 const getRGBColorString = (R, G, B) => {
   return `rgb(${R}, ${G}, ${B})`;
 };
@@ -104,59 +116,68 @@ const setRBG_preview = (previewElement, RGB_colorSchemeVariant) => {
   );
 };
 
-const setPreview = (previewElement, RGB_colorSchemeVariant) => {
-  const { R, G, B } = RGB_colorSchemeVariant;
-  switch (activeColorScheme) {
-    case "RGB":
-      previewElement.style.setProperty(
-        "background-color",
-        getRGBColorString(R, G, B)
-      );
-      break;
-    case "HEX":
-      previewElement.style.setProperty(
-        "background-color",
-        getHEXColorString(R, G, B)
-      );
-      break;
-    case "HSL":
-      previewElement.style.setProperty(
-        "background-color",
-        getHSLColorString(R, G, B)
-      );
-      break;
-    default:
-      break;
-  }
+const setPreview = (previewElement, colorSchemeVariant) => {
+  const { R, G, B } = colorSchemeVariant;
+  previewElement.style.backgroundColor = getColorString[activeColorScheme](R, G, B);
 };
 
-const sendTheme = () => {
-  const { R: PR, G: PG, B: PB } = colorScheme[activeColorScheme].primary;
-  const { R: TR, G: TG, B: TB } = colorScheme[activeColorScheme].text;
-  const { R: SR, G: SG, B: SB } = colorScheme[activeColorScheme].secondary;
-  const {
-    R: TSR,
-    G: TSG,
-    B: TSB,
-  } = colorScheme[activeColorScheme].textSecondary;
+const updateThemeColors = getColorStringFunction => {
+    const { R: PR, G: PG, B: PB } = colorScheme[activeColorScheme].primary;
+    const { R: TR, G: TG, B: TB } = colorScheme[activeColorScheme].text;
+    const { R: SR, G: SG, B: SB } = colorScheme[activeColorScheme].secondary;
+    const {
+      R: TSR,
+      G: TSG,
+      B: TSB,
+    } = colorScheme[activeColorScheme].textSecondary;
 
-  const themeColors = {
-    primary: getRGBColorString(PR, PG, PB),
-    text: getRGBColorString(TR, TG, TB),
-    secondary: getRGBColorString(SR, SG, SB),
-    textSecondary: getRGBColorString(TSR, TSG, TSB),
-  };
-  changeBodyTheme(themeColors);
+    const themeColors = {
+      primary: getColorStringFunction(PR, PG, PB),
+      text: getColorStringFunction(TR, TG, TB),
+      secondary: getColorStringFunction(SR, SG, SB),
+      textSecondary: getColorStringFunction(TSR, TSG, TSB),
+    };
+    changeBodyTheme(themeColors);
 };
 
-const showDefaultLabels = () => {
-  for (const RGB_sliderContainer of sliders) {
-    const variant = RGB_sliderContainer.id;
+const sendTheme = {
+  RGB: () => updateThemeColors(getColorString.RGB),
+  HEX: () => updateThemeColors(getColorString.HEX),
+  HSL: () => updateThemeColors(getColorString.HSL)
+};
 
-    for (const child of RGB_sliderContainer.children) {
-      const color = child.children[1].id;
-      child.children[1].value = HEX_toDecimal(colorScheme[activeColorScheme][variant][color]);
-      child.children[2].innerHTML = colorScheme[activeColorScheme][variant][color];
+const showDefaultLabels = {
+  RGB: () => {
+    for (const RGB_sliderContainer of sliders) {
+      const variant = RGB_sliderContainer.id;
+  
+      for (const child of RGB_sliderContainer.children) {
+        const color = child.children[1].id;
+        child.children[1].value = (colorScheme[activeColorScheme][variant][color]);
+        child.children[2].innerHTML = colorScheme[activeColorScheme][variant][color];
+      }
+    }
+  },
+  HSL: () => {
+    for (const RGB_sliderContainer of sliders) {
+      const variant = RGB_sliderContainer.id;
+  
+      for (const child of RGB_sliderContainer.children) {
+        const color = child.children[1].id;
+        child.children[1].value = (colorScheme[activeColorScheme][variant][color]);
+        child.children[2].innerHTML = colorScheme[activeColorScheme][variant][color];
+      }
+    }
+  },
+  HEX: () => {
+    for (const RGB_sliderContainer of sliders) {
+      const variant = RGB_sliderContainer.id;
+  
+      for (const child of RGB_sliderContainer.children) {
+        const color = child.children[1].id;
+        child.children[1].value = HEX_toDecimal(colorScheme[activeColorScheme][variant][color]);
+        child.children[2].innerHTML = colorScheme[activeColorScheme][variant][color];
+      }
     }
   }
 };
@@ -166,28 +187,27 @@ const addSliderListeners = (sliders, colorSchemeCategory, previewElement) => {
     RGB_slider.oninput = function () {
       const input = this.children[1];
       const colorToChange = input.id;
-      const value = +input.value;
+      const value = activeColorScheme === "HEX" ? decmialTo_HEX(+input.value) :+input.value;
 
-      colorScheme[activeColorScheme][colorSchemeCategory][colorToChange] =
-      decmialTo_HEX(value);
+      colorScheme[activeColorScheme][colorSchemeCategory][colorToChange] = value;
 
       for (const child of this.children) {
-        if (child.id === "label") child.innerHTML = decmialTo_HEX(value);
+        if (child.id === "label") child.innerHTML = value;
       }
 
       setPreview(
         previewElement,
         colorScheme[activeColorScheme][colorSchemeCategory]
       );
-      sendTheme();
+      sendTheme[activeColorScheme]();
     };
   }
 };
 
 const onCustomClick = () => {
   showCustomSelectors();
-  sendTheme();
-  showDefaultLabels();
+  sendTheme[activeColorScheme]();
+  showDefaultLabels[activeColorScheme]();
 };
 
 const addEvents = () => {

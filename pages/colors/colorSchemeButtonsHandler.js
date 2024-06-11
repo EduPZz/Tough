@@ -1,63 +1,48 @@
-const [RGB_button, HEX_button, HSL_button] = document.getElementsByClassName(
-  "color-scheme-buttons"
-)[0].children;
+const [RGB_button, HEX_button, HSL_button] = document.querySelectorAll(".color-scheme-buttons > button");
 
 const sliders = document.getElementsByClassName("slidecontainer");
 
 const allButtons = [RGB_button, HEX_button, HSL_button];
 
+const buildRange = (color, rangeIndex) => {
+  const ranges = {
+    RGB: { R: [0,255], G: [0,255], B: [0,255] },
+    HEX: { R: [0,255], G: [0,255], B: [0,255] },
+    HSL: { R: [0,360], G: [0,100], B: [0,100] }
+  };
+  return ranges[activeColorScheme][color][rangeIndex];
+};
+
 const buildTitle = (color) => {
-  switch (color) {
-    case "R":
-      if (activeColorScheme === "RGB") return "Vermelho"
-      if (activeColorScheme === "HEX") return "Vermelho"
-      if (activeColorScheme === "HSL") return "Tom"
-      break;
-    case "G":
-      if (activeColorScheme === "RGB") return "Verde"
-      if (activeColorScheme === "HEX") return "Verde"
-      if (activeColorScheme === "HSL") return "Saturação"
-      break;
-    case "B":
-      if (activeColorScheme === "RGB") return "Azul"
-      if (activeColorScheme === "HEX") return "Azul"
-      if (activeColorScheme === "HSL") return "luminosidade"
-      break;
-    default:
-      break;
-  }
+  const titles = {
+    RGB: { R: "Vermelho", G: "Verde", B: "Azul" },
+    HEX: { R: "Vermelho", G: "Verde", B: "Azul" },
+    HSL: { R: "Tom", G: "Saturação", B: "Luminosidade" }
+  };
+  return titles[activeColorScheme][color];
 };
 
 const fillSliders = () => {
   for (const sliderContainer of sliders) {
     for (const sliderInput of sliderContainer.children) {
       const color = sliderInput.children[1].id;
-      switch (color) {
-        case "R":
-          sliderInput.children[0].innerHTML = buildTitle(color);
-          break;
-        case "G":
-          sliderInput.children[0].innerHTML = buildTitle(color);
-          break;
-        case "B":
-          sliderInput.children[0].innerHTML = buildTitle(color);
-          break;
-        default:
-          break;
+      sliderInput.children[1].min = buildRange(color, 0)
+      sliderInput.children[1].max = buildRange(color, 1)
+      if (["R", "G", "B"].includes(color)) {
+        sliderInput.children[0].innerHTML = buildTitle(color);
       }
     }
   }
 };
 
-const disableOtherButtons = (exeption) => {
+const disableOtherButtons = (exception) => {
   for (const button of allButtons) {
-    if (exeption.id !== button.id) button.classList.remove("active");
+    if (exception.id !== button.id) button.classList.remove("active");
   }
 };
 
 const activateButton = (button) => {
-  if (!("active" in button.classList)) button.classList.add("active");
-
+  if (!button.classList.contains("active")) button.classList.add("active");
   disableOtherButtons(button);
 };
 
@@ -65,6 +50,7 @@ const buttonOnClick = (button) => {
   activateButton(button);
   activeColorScheme = button.id;
   fillSliders();
+  onCustomClick();
 };
 
 const addButtonsEventListeners = () => {

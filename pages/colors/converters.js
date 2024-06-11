@@ -3,5 +3,6 @@ const HEX_toDecimal = (HEX_code) => {
 }
 
 const decmialTo_HEX = (decimalCode) => {
-    return decimalCode.toString(16).toUpperCase();
+    const hex = decimalCode.toString(16).toUpperCase();
+    return hex.length == 1 ? "0" + hex : hex;
 }
