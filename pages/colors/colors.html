@@ -1,254 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./styles.css" rel="stylesheet" />
-    <title>Document</title>
-  </head>
-  <hr>
-    <h3>Seja bem-vindo a pagina de cores!</h3>
-    <div class="default-themes-selection">
-      <p>Selecione o tema da página:</p>
-      <div class="buttons">
-        <button id="claro">Claro</button>
-        <button id="escuro">Escuro</button>
-        <button id="pastel">Pastel</button>
-        <button id="vermelhoEAzul">Vermelho e Azul</button>
-        <button id="floresta">Floresta</button>
-        <button id="oceano">Oceano</button>
 
-        <button id="custom">Personalizado</button>
-      </div>
-      <div class="custom-selector">
-        <h3>Ecolher esquema de corres</h3>
-        <div class="color-scheme-buttons">
-          <button class="active" id="RGB">RGB</button>
-          <button id="HEX">HEX</button>
-          <button id="HSL">HSL</button>
-        </div>
-        <p>Cor principal</p>
-        <div class="rgbcolorPreview" id="rgbcolorPreviewPrimary"></div>
-        <div class="slidecontainer" id="primary">
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="R"
-            />
-            <p id="label"></p>
-          </div>
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="G"
-            />
-            <p id="label"></p>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./styles.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
 
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="B"
-            />
-            <p id="label"></p>
-          </div>
-        </div>
-      </div>
-      <div class="custom-selector">
-        <p>Cor do texto</p>
-        <div class="rgbcolorPreview" id="rgbcolorPreviewText"></div>
-        <div class="slidecontainer" id="text">
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="R"
-            />
-            <p id="label"></p>
-          </div>
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="G"
-            />
-            <p id="label"></p>
-          </div>
+<body>
+  <a href="../../index.html">Voltar para a página principal</a>
+  <h3>Seja bem-vindo a pagina de cores!</h3>
+  <div class="default-themes-selection">
+    <p>Selecione o tema da página:</p>
+    <div class="buttons">
+      <button id="claro">Claro</button>
+      <button id="escuro">Escuro</button>
+      <button id="pastel">Pastel</button>
+      <button id="vermelhoEAzul">Vermelho e Azul</button>
+      <button id="floresta">Floresta</button>
+      <button id="oceano">Oceano</button>
 
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="B"
-            />
-            <p id="label"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="custom-selector">
-        <p>Cor secundária</p>
-        <div class="rgbcolorPreview" id="rgbcolorPreviewSecondary"></div>
-        <div class="slidecontainer" id="secondary">
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="R"
-            />
-            <p id="label"></p>
-          </div>
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="G"
-            />
-            <p id="label"></p>
-          </div>
-
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="B"
-            />
-            <p id="label"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="custom-selector">
-        <p>Cor do texto secundária</p>
-        <div class="rgbcolorPreview" id="rgbcolorPreviewTextSecondary"></div>
-        <div class="slidecontainer" id="textSecondary">
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="R"
-            />
-            <p id="label"></p>
-          </div>
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="G"
-            />
-            <p id="label"></p>
-          </div>
-
-          <div class="color-input">
-            <p id="title"></p>
-            <input
-              type="range"
-              min="0"
-              max="255"
-              value="50"
-              class="slider"
-              id="B"
-            />
-            <p id="label"></p>
-          </div>
-        </div>
-      </div>  
+      <button id="custom">Personalizado</button>
     </div>
-    
-    <div class="carousel-container">
-      <p>Galeria de imagens</p>
-      <div class="carousel">
-        <button class="arrow left-arrow" onclick="moveLeft()">&#9664;</button>
-        <img src="../../images/chuteiras/1.png" id="1" class="carrousel-image next" alt="Image 1" onclick="moveLeft()">
-        <img src="../../images/chuteiras/2.png" id="2"class="carrousel-image" alt="Image 2" onclick="moveLeft()">
-        <img src="../../images/chuteiras/3.png" id="3" class="carrousel-image" alt="Image 3" onclick="moveRight()">
-        <img src="../../images/chuteiras/4.png" id="4" class="carrousel-image next" alt="Image 4" onclick="moveRight()">
-        <button class="arrow right-arrow" onclick="moveRight()">&#9654;</button>
+    <div class="custom-selector">
+      <a href="#carousel" id="gallery-link">Ver galeria</a>
+      <h3>Ecolher esquema de corres</h3>
+      <div class="color-scheme-buttons">
+        <button class="active" id="RGB">RGB</button>
+        <button id="HEX">HEX</button>
+        <button id="HSL">HSL</button>
       </div>
-      <div class="images-info">
-        <table class="carousel-table">
-          <tr>
-            <th>Imagem</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td class="name" id="1"></td>
-            <td class="description" id="1"></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td class="name" id="2"></td>
-            <td class="description" id="2"></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td class="name" id="3"></td>
-            <td class="description" id="3"></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td class="name" id="4"></td>
-            <td class="description" id="4"></td>
-          </tr>
-        </table>
+      <p>Cor principal</p>
+      <div class="rgbcolorPreview" id="rgbcolorPreviewPrimary"></div>
+      <div class="slidecontainer" id="primary">
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="R" />
+          <p id="label"></p>
+        </div>
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="G" />
+          <p id="label"></p>
+        </div>
+
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="B" />
+          <p id="label"></p>
+        </div>
       </div>
+    </div>
+    <div class="custom-selector">
+      <p>Cor do texto</p>
+      <div class="rgbcolorPreview" id="rgbcolorPreviewText"></div>
+      <div class="slidecontainer" id="text">
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="R" />
+          <p id="label"></p>
+        </div>
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="G" />
+          <p id="label"></p>
+        </div>
+
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="B" />
+          <p id="label"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-selector">
+      <p>Cor secundária</p>
+      <div class="rgbcolorPreview" id="rgbcolorPreviewSecondary"></div>
+      <div class="slidecontainer" id="secondary">
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="R" />
+          <p id="label"></p>
+        </div>
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="G" />
+          <p id="label"></p>
+        </div>
+
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="B" />
+          <p id="label"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-selector">
+      <p>Cor do texto secundária</p>
+      <div class="rgbcolorPreview" id="rgbcolorPreviewTextSecondary"></div>
+      <div class="slidecontainer" id="textSecondary">
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="R" />
+          <p id="label"></p>
+        </div>
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="G" />
+          <p id="label"></p>
+        </div>
+
+        <div class="color-input">
+          <p id="title"></p>
+          <input type="range" min="0" max="255" value="50" class="slider" id="B" />
+          <p id="label"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="carousel" class="carousel-container">
+    <p>Galeria de imagens</p>
+    <div class="carousel">
+      <button class="arrow left-arrow" onclick="moveLeft()">&#9664;</button>
+      <img src="../../images/chuteiras/1.png" id="1" class="carrousel-image next" alt="Image 1" onclick="moveLeft()">
+      <img src="../../images/chuteiras/2.png" id="2" class="carrousel-image" alt="Image 2" onclick="moveLeft()">
+      <img src="../../images/chuteiras/3.png" id="3" class="carrousel-image" alt="Image 3" onclick="moveRight()">
+      <img src="../../images/chuteiras/4.png" id="4" class="carrousel-image next" alt="Image 4" onclick="moveRight()">
+      <button class="arrow right-arrow" onclick="moveRight()">&#9654;</button>
+    </div>
+    <div class="images-info">
+      <table class="carousel-table">
+        <tr>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="name" id="1"></td>
+          <td class="description" id="1"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="name" id="2"></td>
+          <td class="description" id="2"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="name" id="3"></td>
+          <td class="description" id="3"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="name" id="4"></td>
+          <td class="description" id="4"></td>
+        </tr>
+      </table>
+    </div>
   </div>
 
 
 
-    <script src="./converters.js"></script>
-    <script src="./script.js"></script>
-    <script src="./colorSchemeButtonsHandler.js"></script>
-    <script src="./customTheme.js"></script>
-    <script src="./carrousel.js"></script>
-  </body>
+  <script src="./converters.js"></script>
+  <script src="./script.js"></script>
+  <script src="./colorSchemeButtonsHandler.js"></script>
+  <script src="./customTheme.js"></script>
+  <script src="./carrousel.js"></script>
+</body>
+
 </html>
