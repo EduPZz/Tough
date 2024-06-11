@@ -6,7 +6,7 @@
     <link href="./styles.css" rel="stylesheet" />
     <title>Document</title>
   </head>
-  <body>
+  <hr>
     <h3>Seja bem-vindo a pagina de cores!</h3>
     <div class="default-themes-selection">
       <p>Selecione o tema da página:</p>
@@ -199,12 +199,56 @@
             <p id="label"></p>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
+    
+    <div class="carousel-container">
+      <p>Galeria de imagens</p>
+      <div class="carousel">
+        <button class="arrow left-arrow" onclick="moveLeft()">&#9664;</button>
+        <img src="../../images/chuteiras/1.png" id="1" class="carrousel-image next" alt="Image 1" onclick="moveLeft()">
+        <img src="../../images/chuteiras/2.png" id="2"class="carrousel-image" alt="Image 2" onclick="moveLeft()">
+        <img src="../../images/chuteiras/3.png" id="3" class="carrousel-image" alt="Image 3" onclick="moveRight()">
+        <img src="../../images/chuteiras/4.png" id="4" class="carrousel-image next" alt="Image 4" onclick="moveRight()">
+        <button class="arrow right-arrow" onclick="moveRight()">&#9654;</button>
+      </div>
+      <div class="images-info">
+        <table class="carousel-table">
+          <tr>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td class="name" id="1"></td>
+            <td class="description" id="1"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="name" id="2"></td>
+            <td class="description" id="2"></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="name" id="3"></td>
+            <td class="description" id="3"></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="name" id="4"></td>
+            <td class="description" id="4"></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+
 
     <script src="./converters.js"></script>
     <script src="./script.js"></script>
     <script src="./colorSchemeButtonsHandler.js"></script>
     <script src="./customTheme.js"></script>
+    <script src="./carrousel.js"></script>
   </body>
 </html>

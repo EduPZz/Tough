@@ -98,3 +98,62 @@ button .active {
   color: var(--primary);
   border: 1px solid var(--text);
 }
+
+.carousel-container {
+  margin: 24px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--text);
+}
+
+.carousel-container p {
+  text-align: center;
+}
+
+.carousel, .images-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.carousel-item {
+  width: fit-content;
+}
+
+.carrousel-image {
+  background-color: var(--text);
+  border-radius: 8px;
+  max-width: 20%;
+  cursor: pointer;
+}
+
+.next {
+  max-width: 15%;
+  background-color: var(--secondary);
+}
+
+.carousel-table {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.carousel-table th, td {
+  border: 1px solid var(--secondary);
+  text-align: center;
+  padding: 8px;
+}
+
+.carousel-table th {
+  background-color: var(--secondary);
+}
+
+.carousel-table td {
+  max-width: 40vw;
+  text-overflow: "-";
+}
