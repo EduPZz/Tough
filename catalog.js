@@ -58,6 +58,7 @@ let currentIndex = 1;
 const addProductView = shoot => {
   const a = document.createElement("a");
   a.classList.add("product");
+  a.setAttribute("href", `pages/product-view/product-view.html?bootId=${currentIndex + 3}`)
 
   const img = document.createElement("img");
   img.setAttribute("src", `./images/chuteiras/${currentIndex}.png`);
