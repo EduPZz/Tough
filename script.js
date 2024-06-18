@@ -6,6 +6,7 @@ const productCards = document.querySelector("[product-cards]");
 
 const sideBarBtn = document.querySelector(".close-btn");
 const sideBarLink = document.querySelector(".shoping-cart-link");
+const cancelButton = document.getElementById("cancelButton");
 
 const toggleSidebar = () => {
   const sideBar = document.querySelector(".shoppingCartSideBar");
@@ -14,6 +15,10 @@ const toggleSidebar = () => {
 }
 
 sideBarBtn.addEventListener("click", () => {
+  toggleSidebar();
+});
+
+cancelButton.addEventListener("click", () => {
   toggleSidebar();
 });
 

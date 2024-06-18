@@ -9,7 +9,8 @@ const boots = [
     Disponibilidade: "Em estoque",
     Categoria: "Chuteira",
     oldPrice: "R$257.00",
-    NewPrice: "R$249.00 ",
+    NewPrice: "R$249.00",
+    price: 249.00,
     "image-url": "../../images/white.png",
   },
   {
@@ -23,6 +24,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$1.599,90",
     NewPrice: "R$999,90",
+    price: 999.90,
     "image-url": "../../images/Mercurial.png",
   },
   {
@@ -36,6 +38,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$1050.00",
     NewPrice: "R$1000.00",
+    price: 1000.00,
     "image-url": "../../images/black.png",
   },
   {
@@ -49,6 +52,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$260.00",
     NewPrice: "R$246.00",
+    price: 246.00,
     "image-url": "../../images/chuteiras/1.png",
   },
   {
@@ -62,6 +66,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$800.00",
     NewPrice: "R$749.00",
+    price: 749.00,
     "image-url": "../../images/chuteiras/2.png",
   },
   {
@@ -75,6 +80,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$2500.00",
     NewPrice: "R$1999.00",
+    price: 1999.00,
     "image-url": "../../images/chuteiras/3.png",
   },
   {
@@ -88,6 +94,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$369.00",
     NewPrice: "R$299.00",
+    price: 299.00,
     "image-url": "../../images/chuteiras/4.png",
   },
   {
@@ -101,6 +108,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$500.00",
     NewPrice: "R$399.00",
+    price: 399.00,
     "image-url": "../../images/chuteiras/5.png",
   },
   {
@@ -114,6 +122,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$1499.00",
     NewPrice: "R$1299.00",
+    price: 1299.00,
     "image-url": "../../images/chuteiras/6.png",
   },
   {
@@ -127,6 +136,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$2000.00",
     NewPrice: "R$1499.00",
+    price: 1499.00,
     "image-url": "../../images/chuteiras/7.png",
   },
   {
@@ -140,6 +150,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$700.00",
     NewPrice: "R$549.00",
+    price: 549.00,
     "image-url": "../../images/chuteiras/8.png",
   },
   {
@@ -153,6 +164,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$500.00",
     NewPrice: "R$399.00",
+    price: 399.00,
     "image-url": "../../images/chuteiras/9.png",
   },
   {
@@ -166,6 +178,7 @@ const boots = [
     Categoria: "Chuteira",
     oldPrice: "R$800.00",
     NewPrice: "R$699.00",
+    price: 699.00,
     "image-url": "../../images/chuteiras/10.png",
   },
 ];

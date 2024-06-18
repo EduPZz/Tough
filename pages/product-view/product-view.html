@@ -17,6 +17,8 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="../../data/products/boots.js"></script>
+    <script src="../../data/cart/index.js"></script>
+    <script src="../../helpers/cartLoader.js"></script>
     <script src="script.js" defer></script>
     <title>Tough</title>
   </head>
@@ -24,54 +26,21 @@
     <div class="container">
       <div class="shoppingCartSideBar disabled">
         <div class="sidebarContainer">
-          <button class="close-btn">
-            <img width="16" height="16" src="../../images/close.svg" />
-          </button>
-          <h3 class="sidebar-title">Carrinho de compras</h3>
-          <ul class="cart-items">
-            <li>
-              <div>
-                <span class="qty">1x</span>
-                <div>Phantom GX II Club Futsal</div>
-                <div class="price">R$1000,00</div>
-              </div>
-              <a href="#0" class="item-remove"
-                ><img width="16" height="16" src="../../images/close.svg"
-              /></a>
-            </li>
-
-            <li>
-              <div>
-                <span class="qty">1x</span>
-                <div>Elite 360 FG - CR7 Green</div>
-                <div class="price">R$999,90</div>
-              </div>
-              <a href="#0" class="item-remove"
-                ><img width="16" height="16" src="../../images/close.svg"
-              /></a>
-            </li>
-
-            <li>
-              <div>
-                <span class="qty">1x</span>
-                <div>Mercurial Vapor 15 Elite Campo</div>
-                <div class="price">R$249.00</div>
-              </div>
-              <a href="#0" class="item-remove"
-                ><img width="16" height="16" src="../../images/close.svg"
-              /></a>
-            </li>
-          </ul>
-          <div class="total">
-            <p>Total</p>
-            <p>R$2.248,0</p>
-          </div>
-          <div class="sidebar-buttons">
-            <button type="button" class="btn buy">Finalizar compra</button>
-            <button type="button" class="btn cancel">Continuar comprando</button>
-          </div>
+            <button class="close-btn">
+                <img width="16" height="16" src="../../images/close.svg" />
+            </button>
+            <h3 class="sidebar-title">Carrinho de compras</h3>
+            <ul class="cart-items"></ul>
+            <div class="total">
+                <p>Total</p>
+                <p class="total-price">R$0,00</p>
+            </div>
+            <div class="sidebar-buttons">
+                <button type="button" class="btn buy">Finalizar compra</button>
+                <button id="cancelButton" type="button" class="btn cancel">Continuar comprando</button>
+            </div>
         </div>
-      </div>
+    </div>
       <header>
         <a href="../../index.html">
           <img class="logo" src="../../images/Logo.svg" />
@@ -108,11 +77,10 @@
             </ul>
           </div>
           <div class="purchase-info">
-            <input type="number" min="0" value="1" />
-            <button type="button" class="btn">
+            <button type="button" class="btn" id="addToCart">
               Adicionar no carrinho <i class="fas fa-shopping-cart"></i>
             </button>
-            <button type="button" class="btn">Comparar</button>
+            <button type="button" class="btn">Comprar</button>
           </div>
         </div>
       </section>
